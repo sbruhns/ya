@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"strings"
 
+	"github.com/sbruhns/ya/yubi"
 	"github.com/spf13/cobra"
 )
 
@@ -24,12 +25,7 @@ var scanCmd = &cobra.Command{
 			os.Exit(-1)
 		}
 
-		yubioathCmdName := "yubioath-cli"
-		if exec.Command("which", yubioathCmdName).Run() != nil {
-			yubioathCmdName = "yubioath"
-		}
-
-		if exec.Command(yubioathCmdName, "put", code).Run() != nil {
+		if exec.Command(yubi.YubioathCmdName, "put", code).Run() != nil {
 			fmt.Println("error while put code to yubikey")
 			os.Exit(-1)
 		}

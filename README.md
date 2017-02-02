@@ -1,5 +1,4 @@
 # ya
 
-yubioath tool for scanning codes using yubioath-cli, zbar, image magic
-
-Requires: ImageMagick, zbar and yubioath (cli) installed
+CLI tool to scan QR-Codes and copy tokens to clipboard for Yubikeys
+Requires: ImageMagick, zbar, xsel and yubioath (cli) installed

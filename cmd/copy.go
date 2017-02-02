@@ -37,8 +37,12 @@ var copyCmd = &cobra.Command{
 			if l > 1 {
 				key := Key{number, parsedKey[0], parsedKey[l-1]}
 				keys = append(keys, key)
-				fmt.Println(key)
+				fmt.Println(strconv.Itoa(key.Number) + ". " + key.Name + " " + key.Token)
 			}
+		}
+		if len(keys) < 1 {
+			fmt.Println("No key was found!")
+			os.Exit(1)
 		}
 
 		reader := bufio.NewReader(os.Stdin)
@@ -59,7 +63,7 @@ var copyCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		fmt.Println(keys[selected-1].Name + " token to copied!")
+		fmt.Println(keys[selected-1].Name + " token was copied!")
 	},
 }
 
